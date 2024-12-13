@@ -17,11 +17,7 @@ This project implements a **Movie Recommendation System** that predicts top movi
 The top 5 movies for a user are predicted based on their **similarity** with other users. Here is how it works:
 
 - **Step 1: User-User Similarity Calculation**
-  We compute the similarity between the target user and all other users using the **cosine similarity** measure, which is based on the ratings given by users to the movies. The cosine similarity between two users' rating vectors is calculated as:
-
-  \[
-\text{Cosine Similarity} = \frac{\sum_{i=1}^{n} (a_i \cdot b_i)}{\sqrt{\sum_{i=1}^{n} a_i^2} \cdot \sqrt{\sum_{i=1}^{n} b_i^2}}
-\]
+  We compute the similarity between the target user and all other users using the **cosine similarity** measure, which is based on the ratings given by users to the movies. 
 
 - **Step 2: Weighting Similarity**
   Once we have the similarity values between the target user and other users, we use the similarity score as a weight to predict ratings for movies that the target user hasn't rated yet.
