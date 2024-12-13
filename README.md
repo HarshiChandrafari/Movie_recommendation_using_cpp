@@ -19,10 +19,13 @@ The top 5 movies for a user are predicted based on their **similarity** with oth
 - **Step 1: User-User Similarity Calculation**
   We compute the similarity between the target user and all other users using the **cosine similarity** measure, which is based on the ratings given by users to the movies. The cosine similarity between two users' rating vectors is calculated as:
   
-  \[
-  \text{Cosine Similarity} = \frac{\sum{(a_i \cdot b_i)}}{\sqrt{\sum{a_i^2}} \cdot \sqrt{\sum{b_i^2}}}
-  \]
-  where \( a_i \) and \( b_i \) are the ratings of the two users for movie \(i\).
+\[
+\text{Cosine Similarity} = \frac{\sum_{i=1}^{n} (a_i \cdot b_i)}{\sqrt{\sum_{i=1}^{n} a_i^2} \cdot \sqrt{\sum_{i=1}^{n} b_i^2}}
+\]
+
+Where:  
+- \(a_i\) and \(b_i\) are the ratings of two users for the \(i\)-th movie.
+- \(n\) is the total number of movies rated by both users.
 
 - **Step 2: Weighting Similarity**
   Once we have the similarity values between the target user and other users, we use the similarity score as a weight to predict ratings for movies that the target user hasn't rated yet.
