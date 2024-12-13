@@ -1,16 +1,12 @@
-Here's an example of how you can structure your README file to explain the project in detail, including how you predict the top 5 movies and how you get a rating for a particular movie.
-
----
-
-# Movie Recommendation System
+# Movie Recommendation System in C++
 
 ## Project Overview
 
-This project implements a **Movie Recommendation System** that predicts top movies for a user and provides a predicted rating for a movie the user has not rated yet, based on similarities with other users. The system uses a **cosine similarity** method to calculate user similarity and a **weighted average** technique to predict ratings.
+This project implements a **Movie Recommendation System** that predicts top movies 5 for a user and provides a predicted rating for a movie the user has not rated yet, based on similarities with other users. The system uses a **cosine similarity** method to calculate user similarity and a **weighted average** technique to predict ratings.
 
 ### Key Features
 - **Top 5 Movie Prediction**: Recommend the top 5 movies to a user based on their similarity to other users.
-- **Rating Prediction**: Predict the rating a user would give to a movie that they have not yet rated, based on ratings from similar users.
+- **Rating Prediction**: Predict the rating a user would give to a movie that they have not yet rated based on ratings from similar users.
 
 ---
 
@@ -54,10 +50,6 @@ For a particular movie that a user has not rated yet, the system predicts the ra
 
 ## Project Setup
 
-### Prerequisites
-- C++ Compiler (e.g., `g++`)
-- C++11 or later support
-
 ### Installation Steps
 1. Clone the repository:
    ```bash
@@ -69,15 +61,9 @@ For a particular movie that a user has not rated yet, the system predicts the ra
    cd movie-recommendation-system
    ```
 
-3. Compile the C++ code:
-   ```bash
-   g++ -o recommendation_system main.cpp
-   ```
-
-4. Run the system:
-   ```bash
-   ./recommendation_system
-   ```
+3. Run the cpp files:
+   - top_n_recommendations.cpp -> for getting top 5 predictions (change target user to change user ID for which we want predictions)
+   - get_prediction.cpp -> To get a rating for a particular movie for a particular user. (change target user and movie ID to get the required rating)
 
 ### Data Format
 
@@ -91,21 +77,7 @@ For a particular movie that a user has not rated yet, the system predicts the ra
    user_id, movie_id, rating, timestamp
    ```
 
-### Example Data
-- Movies:
-  ```
-  1374, "Movie A", "Action, Comedy"
-  2492, "Movie B", "Drama, Romance"
-  5678, "Movie C", "Horror, Thriller"
-  ```
-
-- Ratings:
-  ```
-  0, 1374, 4.5, 1234567890
-  0, 2492, 3.0, 1234567890
-  1, 1374, 5.0, 1234567890
-  1, 2492, 2.5, 1234567890
-  ```
+For using less memory, we have only considered movies up to MovieID = 5000 and not beyond that.
 
 ---
 
@@ -117,7 +89,7 @@ The **cosine similarity** function computes the similarity between two vectors o
 
 ### 2. **Prediction Function**
 
-The `predict_rating` function calculates the predicted rating for a particular movie for the target user. It uses the **weighted average** of ratings from other users who are similar to the target user, with the similarity score acting as a weight.
+The `predict_rating` function calculates the predicted rating for a particular movie for the target user. It uses the **weighted average** of ratings from other users who have very high similarity to the target user, with the similarity score acting as a weight.
 
 ### 3. **Recommendation Function**
 
@@ -125,44 +97,24 @@ The `recommend_movies` function uses the `predict_rating` function to predict th
 
 ---
 
-## Example Usage
+## Performance Report
 
-1. **Predict Top 5 Movies for User 1**:
-   - The system calculates the similarity between User 1 and all other users.
-   - It predicts ratings for all unrated movies based on the ratings from similar users.
-   - The top 5 movies are then selected and recommended to User 1.
+We evaluated the system by predicting ratings for users who had already rated specific movies and compared the predicted ratings with the actual ones. The Root Mean Squared Error (RMSE) metric was used to measure the accuracy of the predictions:
 
-2. **Predict Rating for a Movie (e.g., Movie 2492) for User 0**:
-   - The system calculates the similarity between User 0 and all other users.
-   - It predicts the rating User 0 would give to Movie 2492 based on ratings from similar users.
+1. **RMSE for 10 users across all movies**: **1.230**  
+2. **RMSE for 100 users for movies with `movieID ≤ 1000`**: **1.008**  
+
+These results demonstrate that the system achieves reasonable accuracy, with better performance observed for a larger user set and a limited movie range.
 
 ---
 
-## Example Output
+##  Output Screenshots
 
-```
-Top 5 Recommendations for User 1:
-1. Movie A - Predicted Rating: 4.2
-2. Movie C - Predicted Rating: 3.8
-3. Movie D - Predicted Rating: 3.5
-4. Movie B - Predicted Rating: 3.3
-5. Movie E - Predicted Rating: 3.0
+![Top 5 Predictions](0_top_n)
 
-Predicted Rating for User 0 on Movie ID 2492: 3.7
-```
+![Image Description](0_get_prediction)
 
----
+![Image Description](0_rmse1)
 
-## Contributing
+![Image Description](0_rmse2)
 
-Feel free to fork the repository and submit pull requests with improvements or bug fixes. If you encounter any issues, please open an issue in the repository.
-
----
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-This README provides an overview of how the movie recommendation system works, including the key steps for predicting the top 5 movies and predicting ratings for specific movies. It also includes installation instructions, data format details, and example usage.
