@@ -110,11 +110,11 @@ These results demonstrate that the system achieves reasonable accuracy, with bet
 
 ##  Output Screenshots
 
-![Top 5 Predictions](0_top_n)
+![Top 5 Predictions](0_top_n.png)
 
-![Image Description](0_get_prediction)
+![Image Description](0_get_prediction.png)
 
-![Image Description](0_rmse1)
+![Image Description](0_rmse1.png)
 
-![Image Description](0_rmse2)
+![Image Description](0_rmse2.png)
 
