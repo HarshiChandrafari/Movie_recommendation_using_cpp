@@ -67,6 +67,8 @@ For a particular movie that a user has not rated yet, the system predicts the ra
 
 ### Data Format
 
+We have used data from this link - [https://www.kaggle.com/datasets/shubhammehta21/movie-lens-small-latest-dataset]
+
 1. **Movies Data**: The movie dataset contains movie IDs, titles, and tags (optional). Each movie is represented as:
    ```csv
    movie_id, movie_title, movie_tags
