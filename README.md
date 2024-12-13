@@ -52,20 +52,24 @@ For a particular movie that a user has not rated yet, the system predicts the ra
 
 ### Installation Steps
 1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/movie-recommendation-system.git
-   ```
    
 2. Navigate to the project directory:
-   ```bash
-   cd movie-recommendation-system
-   ```
 
 3. Run the cpp files:
    - top_n_recommendations.cpp -> for getting top 5 predictions (change target user to change user ID for which we want predictions)
    - get_prediction.cpp -> To get a rating for a particular movie for a particular user. (change target user and movie ID to get the required rating)
 
-### Data Format
+---
+
+## Files Description:
+
+1. load_data.h - Helps load the data from CSV files and convert it into matrices/vectors as required.
+2. user_similarity.h - Contains functions used in calculating similarity among different users
+3. predictions.h - contains the function for recommending movies
+
+---
+
+## Data Format
 
 We have used data from this link - [https://www.kaggle.com/datasets/shubhammehta21/movie-lens-small-latest-dataset]
 
