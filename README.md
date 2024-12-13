@@ -82,22 +82,6 @@ For using less memory, we have only considered movies up to MovieID = 5000 and n
 
 ---
 
-## Code Explanation
-
-### 1. **Cosine Similarity Function**
-
-The **cosine similarity** function computes the similarity between two vectors of ratings for users. If either user has a `NaN` value in their ratings, those entries are skipped during the similarity calculation.
-
-### 2. **Prediction Function**
-
-The `predict_rating` function calculates the predicted rating for a particular movie for the target user. It uses the **weighted average** of ratings from other users who have very high similarity to the target user, with the similarity score acting as a weight.
-
-### 3. **Recommendation Function**
-
-The `recommend_movies` function uses the `predict_rating` function to predict the ratings for all movies that the target user hasn't rated yet. It then sorts the movies by predicted rating and returns the top 5 movies.
-
----
-
 ## Performance Report
 
 We evaluated the system by predicting ratings for users who had already rated specific movies and compared the predicted ratings with the actual ones. The Root Mean Squared Error (RMSE) metric was used to measure the accuracy of the predictions:
